@@ -24,10 +24,15 @@ namespace NoteAppUI
         private void Form1_Load(object sender, EventArgs e)
         {
             Project project = new Project();
-            Note note = new Note("Тестовая заметка", Category.Other, "Заметка для теста", DateTime.Now);
-            project.Glossary.Add(note);
-            Console.WriteLine(note.Name + "  " + note.Category + "  " + note.Text + "  " + note.TimeCreation);
-         
+            Note[] note = new Note[2];
+            for (int i = 0; i < 2; i++)
+            {
+               note[i]=new Note("Тестовая заметка "+i, Category.Other, "Заметка для теста", DateTime.Now);
+Console.WriteLine(note[i].Name + "  " + note[i].Category + "  " + note[i].Text + "  " + note[i].TimeCreation);
+            project.Glossary.Add(note[i]);
+            }
+            ProjectManager.SaveToFile(project);
         }
+
     }
 }
