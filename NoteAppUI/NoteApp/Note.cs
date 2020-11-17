@@ -65,7 +65,17 @@ namespace NoteApp
         /// <summary>
         /// Задаёт и возвращает время создания заметки
         /// </summary>
-        public DateTime TimeCreation { get; private set; }
+        public DateTime TimeCreation {
+
+            get
+            {
+                return _timecreation;
+            }
+            private set
+            {
+                _timecreation = value;
+            }
+        }
 
         /// <summary>
         /// Задаёт и возвращает время изменения заметки
