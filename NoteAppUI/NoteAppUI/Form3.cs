@@ -11,7 +11,7 @@ using NoteApp;
 
 namespace NoteAppUI
 {
-    public partial class Form3 : Form
+    public partial class NoteForm : Form
     {
         private Note _note;
 
@@ -31,7 +31,7 @@ namespace NoteAppUI
                 }
             }
         }
-        public Form3()
+        public NoteForm()
         {
             InitializeComponent();
             foreach (Category element in Enum.GetValues(typeof(Category)))

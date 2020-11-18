@@ -1,6 +1,6 @@
 ﻿namespace NoteAppUI
 {
-    partial class Form3
+    partial class NoteForm
     {
         /// <summary>
         /// Required designer variable.
@@ -193,7 +193,7 @@
             this.panel3.Size = new System.Drawing.Size(561, 33);
             this.panel3.TabIndex = 13;
             // 
-            // Form3
+            // NoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -202,8 +202,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(450, 230);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "NoteForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

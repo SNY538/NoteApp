@@ -48,28 +48,29 @@ namespace NoteAppUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Project project = new Project();
-            Note[] note = new Note[2];
-            for (int i = 0; i < 2; i++)
-            {
-               note[i]=new Note("Тестовая заметка "+i, Category.Other, "Заметка для теста", DateTime.Now);
-               Console.WriteLine(note[i].Name + "  " + note[i].Category + "  " + note[i].Text + "  " + note[i].TimeCreation);
-            project.Glossary.Add(note[i]);
-            }
-            ProjectManager.WritingToFile(project);
-            Project project2 = new Project();
-            project2 = ProjectManager.ReadingFromFile();
-            Note[] note1 = new Note[2];
-            for (int i = 0; i < 2; i++)
-            {
-                project2.Glossary.Add(note1[i]);
-            }
+            FillListbox();
+            //Project project = new Project();
+            //Note[] note = new Note[2];
+            //for (int i = 0; i < 2; i++)
+            //{
+            //   note[i]=new Note("Тестовая заметка "+i, Category.Other, "Заметка для теста", DateTime.Now);
+            //   Console.WriteLine(note[i].Name + "  " + note[i].Category + "  " + note[i].Text + "  " + note[i].TimeCreation);
+            //project.Glossary.Add(note[i]);
+            //}
+            //ProjectManager.WritingToFile(project);
+            //Project project2 = new Project();
+            //project2 = ProjectManager.ReadingFromFile();
+            //Note[] note1 = new Note[2];
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    project2.Glossary.Add(note1[i]);
+            //}
 
             
-            for (int i = 0; i < 2; i++)
-            {
-                Console.WriteLine(project2.Glossary[i].Name + "  " + project2.Glossary[i].Category + "  " + project2.Glossary[i].Text + "  " + project2.Glossary[i].TimeCreation);
-            }
+            //for (int i = 0; i < 2; i++)
+            //{
+            //    Console.WriteLine(project2.Glossary[i].Name + "  " + project2.Glossary[i].Category + "  " + project2.Glossary[i].Text + "  " + project2.Glossary[i].TimeCreation);
+            //}
         }
 
         
@@ -109,17 +110,17 @@ namespace NoteAppUI
 
         private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //DeleteNote();
+            DeleteNote();
         }
 
         private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // ChangeNote();
+           ChangeNote();
         }
 
         private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // CreateNote();
+            CreateNote();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,17 +130,137 @@ namespace NoteAppUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            //CreateNote();
+            CreateNote();
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-           // ChangeNote();
+            ChangeNote();
         }
 
         private void DeletButton_Click(object sender, EventArgs e)
         {
-           // DeleteNote();
+            DeleteNote();
+        }
+        private void FillListbox()
+        {
+            //проверка на null(если заметок еще нет)
+            if (allNotes != null)
+            {
+                TitlesListBox.Items.Clear();
+
+                sortNotes = allNotes.SortWithSelectionCategory(CategorysComboBox.SelectedIndex);
+
+                {
+                    for (int i = 0; i < sortNotes.Count; i++)
+                    {
+                        TitlesListBox.Items.Add(sortNotes[i].Name);
+
+                    }
+                }
+            }
+        }
+        private void CreateNote()
+        {
+            //получаем выбранную заметку
+            Note newNote = new Note(string.Empty, Category.Work, string.Empty, DateTime.Now); //сама заметка
+
+            newNote.TimeLastChange = DateTime.Now;
+
+            NoteForm inner = new NoteForm(); //создаем форму
+            inner.Note = newNote; //передаем форме данные
+            inner.Text = ("Add Note");
+            //если было нажато Cancel завершаем выполнение обработчика
+            if (inner.ShowDialog() == DialogResult.OK)
+            {
+                var updatedNote = inner.Note; //забираем измененные данные
+
+                //добавляем новую заметку в список
+                allNotes.Glossary.Add(updatedNote);
+
+                var changeTitle = updatedNote.Name;
+
+                FillListbox();
+
+                TitlesListBox.SelectedItem = changeTitle;
+
+                ProjectManager.WritingToFile(allNotes);
+            }
+        }
+
+        //изменение заметки
+        private void ChangeNote()
+        {
+            //если заметка не выбрана завершаем выполнение обработчика(ничего не происходит при нажатии на "Изменить")
+            if (TitlesListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            //получаем выбранную заметку
+            var selectedIndex = TitlesListBox.SelectedIndex; //индекс нашей заметки в списке всех заметок allNotes
+
+            var selectedNote = sortNotes[selectedIndex]; //сама заметка
+
+            NoteForm inner = new NoteForm(); //создаем форму
+            inner.Note = selectedNote; //передаем форме данные
+            inner.Text = ("Edit Note");
+            //если было нажато Cancel завершаем выполнение обработчика
+            if (inner.ShowDialog() == DialogResult.OK)
+            {
+                var updatedNote = inner.Note; //забираем измененные данные
+
+                //удалить и заменить старые данные
+                allNotes.Glossary.RemoveAt(allNotes.RealIndexes[selectedIndex]);
+
+                allNotes.Glossary.Add(updatedNote);
+
+                FillListbox();
+
+                var changeTitle = updatedNote.Name;
+
+                TitlesListBox.SelectedItem = changeTitle;
+
+                ProjectManager.WritingToFile(allNotes);
+            }
+        }
+
+        //удаление заметки
+        private void DeleteNote()
+        {
+            //если заметка не выбрана завершаем выполнение обработчика(ничего не происходит при нажатии на "Удалить")
+            if (TitlesListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            if (MessageBox.Show("Вы уверены что хотите удалить заметку?", "Удаление", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                //получаем выбранную заметку
+                var selectedIndex = TitlesListBox.SelectedIndex; //индекс нашей заметки в списке всех заметок allNotes
+
+                TitlesListBox.Items.RemoveAt(selectedIndex);
+
+                allNotes.Glossary.RemoveAt(allNotes.RealIndexes[selectedIndex]);
+
+                allNotes._currentNote = -1;
+
+                FillListbox();
+
+                CategoryTextBox.Clear();
+                TitleTextBox.Clear();
+                NoteTextBox.Clear();
+
+
+
+                ProjectManager.WritingToFile(allNotes);
+            }
+        }
+
+        private void CategorysComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillListbox();
         }
     }
 }
