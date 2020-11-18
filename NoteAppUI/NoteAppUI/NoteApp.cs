@@ -49,13 +49,14 @@ namespace NoteAppUI
         private void Form1_Load(object sender, EventArgs e)
         {
             FillListbox();
+            CategorysComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             //Project project = new Project();
             //Note[] note = new Note[2];
             //for (int i = 0; i < 2; i++)
             //{
-            //   note[i]=new Note("Тестовая заметка "+i, Category.Other, "Заметка для теста", DateTime.Now);
-            //   Console.WriteLine(note[i].Name + "  " + note[i].Category + "  " + note[i].Text + "  " + note[i].TimeCreation);
-            //project.Glossary.Add(note[i]);
+            //    note[i] = new Note("Тестовая заметка " + i, Category.Other, "Заметка для теста", DateTime.Now);
+            //    Console.WriteLine(note[i].Name + "  " + note[i].Category + "  " + note[i].Text + "  " + note[i].TimeCreation);
+            //    project.Glossary.Add(note[i]);
             //}
             //ProjectManager.WritingToFile(project);
             //Project project2 = new Project();
@@ -66,7 +67,7 @@ namespace NoteAppUI
             //    project2.Glossary.Add(note1[i]);
             //}
 
-            
+
             //for (int i = 0; i < 2; i++)
             //{
             //    Console.WriteLine(project2.Glossary[i].Name + "  " + project2.Glossary[i].Category + "  " + project2.Glossary[i].Text + "  " + project2.Glossary[i].TimeCreation);
@@ -101,7 +102,7 @@ namespace NoteAppUI
             sortNotes = allNotes.SortWithSelectionCategory(CategorysComboBox.SelectedIndex);
 
             //заполняем данными правую часть окна
-            NoteTextBox.Text = sortNotes[TitlesListBox.SelectedIndex].Name;
+            TitleTextBox.Text = sortNotes[TitlesListBox.SelectedIndex].Name;
             CategoryTextBox.Text = "Category: " + sortNotes[TitlesListBox.SelectedIndex].Category;
             CreateDateTimePicker.Value = sortNotes[TitlesListBox.SelectedIndex].TimeCreation;
             ChangeDateTimePicker.Value = sortNotes[TitlesListBox.SelectedIndex].TimeCreation;
@@ -234,8 +235,7 @@ namespace NoteAppUI
                 return;
             }
 
-            if (MessageBox.Show("Вы уверены что хотите удалить заметку?", "Удаление", MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("Вы уверены что хотите удалить заметку?", "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 //получаем выбранную заметку
                 var selectedIndex = TitlesListBox.SelectedIndex; //индекс нашей заметки в списке всех заметок allNotes

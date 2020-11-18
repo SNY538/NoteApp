@@ -273,16 +273,18 @@ namespace NoteAppUI
             this.CategoryTextBox.Enabled = false;
             this.CategoryTextBox.Location = new System.Drawing.Point(111, 51);
             this.CategoryTextBox.Name = "CategoryTextBox";
-            this.CategoryTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CategoryTextBox.Size = new System.Drawing.Size(132, 20);
             this.CategoryTextBox.TabIndex = 1;
+            this.CategoryTextBox.Text = " ";
             // 
             // NoteTextBox
             // 
             this.NoteTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NoteTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.NoteTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.NoteTextBox.Enabled = false;
+            this.NoteTextBox.ForeColor = System.Drawing.SystemColors.MenuText;
             this.NoteTextBox.Location = new System.Drawing.Point(3, 109);
             this.NoteTextBox.Multiline = true;
             this.NoteTextBox.Name = "NoteTextBox";

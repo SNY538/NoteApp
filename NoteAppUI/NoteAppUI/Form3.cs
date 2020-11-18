@@ -34,6 +34,7 @@ namespace NoteAppUI
         public NoteForm()
         {
             InitializeComponent();
+            CategorysComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             foreach (Category element in Enum.GetValues(typeof(Category)))
             {
                 CategorysComboBox.Items.Add(element);
