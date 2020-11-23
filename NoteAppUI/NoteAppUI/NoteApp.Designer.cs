@@ -70,7 +70,7 @@ namespace NoteAppUI
             this.helpButton});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(871, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(826, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -187,7 +187,7 @@ namespace NoteAppUI
             this.panel1.Controls.Add(this.TitlesListBox);
             this.panel1.Location = new System.Drawing.Point(3, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(261, 335);
+            this.panel1.Size = new System.Drawing.Size(246, 335);
             this.panel1.TabIndex = 0;
             // 
             // TitlesListBox
@@ -198,7 +198,7 @@ namespace NoteAppUI
             this.TitlesListBox.FormattingEnabled = true;
             this.TitlesListBox.Location = new System.Drawing.Point(3, 3);
             this.TitlesListBox.Name = "TitlesListBox";
-            this.TitlesListBox.Size = new System.Drawing.Size(241, 329);
+            this.TitlesListBox.Size = new System.Drawing.Size(226, 329);
             this.TitlesListBox.TabIndex = 0;
             this.TitlesListBox.SelectedIndexChanged += new System.EventHandler(this.TitlesListBox_SelectedIndexChanged);
             // 
@@ -264,7 +264,7 @@ namespace NoteAppUI
             this.TitleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TitleTextBox.Location = new System.Drawing.Point(23, 14);
             this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(526, 22);
+            this.TitleTextBox.Size = new System.Drawing.Size(496, 22);
             this.TitleTextBox.TabIndex = 2;
             // 
             // CategoryTextBox
@@ -289,7 +289,7 @@ namespace NoteAppUI
             this.NoteTextBox.Multiline = true;
             this.NoteTextBox.Name = "NoteTextBox";
             this.NoteTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.NoteTextBox.Size = new System.Drawing.Size(555, 332);
+            this.NoteTextBox.Size = new System.Drawing.Size(525, 332);
             this.NoteTextBox.TabIndex = 0;
             // 
             // splitContainer1
@@ -308,6 +308,7 @@ namespace NoteAppUI
             this.splitContainer1.Panel1.Controls.Add(this.CategorysComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.AddButton);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -319,15 +320,15 @@ namespace NoteAppUI
             this.splitContainer1.Panel2.Controls.Add(this.CategoryTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.CreateDateTimePicker);
-            this.splitContainer1.Size = new System.Drawing.Size(847, 444);
-            this.splitContainer1.SplitterDistance = 282;
+            this.splitContainer1.Size = new System.Drawing.Size(802, 444);
+            this.splitContainer1.SplitterDistance = 267;
             this.splitContainer1.TabIndex = 13;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 483);
+            this.ClientSize = new System.Drawing.Size(826, 483);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
