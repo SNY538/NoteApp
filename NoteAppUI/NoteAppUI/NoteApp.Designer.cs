@@ -39,9 +39,6 @@ namespace NoteAppUI
             this.helpButton = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CategorysComboBox = new System.Windows.Forms.ComboBox();
-            this.DeletButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.AddButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TitlesListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,6 +51,9 @@ namespace NoteAppUI
             this.CategoryTextBox = new System.Windows.Forms.TextBox();
             this.NoteTextBox = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.DeletButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -145,39 +145,6 @@ namespace NoteAppUI
             this.CategorysComboBox.Size = new System.Drawing.Size(163, 21);
             this.CategorysComboBox.TabIndex = 1;
             this.CategorysComboBox.SelectedIndexChanged += new System.EventHandler(this.CategorysComboBox_SelectedIndexChanged);
-            // 
-            // DeletButton
-            // 
-            this.DeletButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeletButton.BackgroundImage = global::NoteAppUI.Properties.Resources.cancel_close_delete_exit_logout_remove_x_icon_123217;
-            this.DeletButton.Location = new System.Drawing.Point(96, 400);
-            this.DeletButton.Name = "DeletButton";
-            this.DeletButton.Size = new System.Drawing.Size(36, 32);
-            this.DeletButton.TabIndex = 3;
-            this.DeletButton.UseVisualStyleBackColor = true;
-            this.DeletButton.Click += new System.EventHandler(this.DeletButton_Click);
-            // 
-            // EditButton
-            // 
-            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.EditButton.BackgroundImage = global::NoteAppUI.Properties.Resources.edit_modify_icon_icons_com_72390_1_;
-            this.EditButton.Location = new System.Drawing.Point(54, 400);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(36, 32);
-            this.EditButton.TabIndex = 2;
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
-            // AddButton
-            // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddButton.BackgroundImage = global::NoteAppUI.Properties.Resources.folder_add_black_interface_symbol_icon_icons_com_54529;
-            this.AddButton.Location = new System.Drawing.Point(12, 400);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(36, 32);
-            this.AddButton.TabIndex = 0;
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // panel1
             // 
@@ -323,6 +290,39 @@ namespace NoteAppUI
             this.splitContainer1.Size = new System.Drawing.Size(802, 444);
             this.splitContainer1.SplitterDistance = 267;
             this.splitContainer1.TabIndex = 13;
+            // 
+            // DeletButton
+            // 
+            this.DeletButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeletButton.BackgroundImage = global::NoteAppUI.Properties.Resources.cancel_close_delete_exit_logout_remove_x_icon_123217;
+            this.DeletButton.Location = new System.Drawing.Point(96, 400);
+            this.DeletButton.Name = "DeletButton";
+            this.DeletButton.Size = new System.Drawing.Size(32, 32);
+            this.DeletButton.TabIndex = 3;
+            this.DeletButton.UseVisualStyleBackColor = true;
+            this.DeletButton.Click += new System.EventHandler(this.DeletButton_Click);
+            // 
+            // EditButton
+            // 
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EditButton.BackgroundImage = global::NoteAppUI.Properties.Resources.edit_modify_icon_icons_com_72390_1_;
+            this.EditButton.Location = new System.Drawing.Point(54, 400);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(32, 32);
+            this.EditButton.TabIndex = 2;
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // AddButton
+            // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddButton.BackgroundImage = global::NoteAppUI.Properties.Resources._1491254405_plusaddmoredetail_82972;
+            this.AddButton.Location = new System.Drawing.Point(16, 400);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(32, 32);
+            this.AddButton.TabIndex = 0;
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // MainForm
             // 

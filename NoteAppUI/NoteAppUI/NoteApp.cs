@@ -50,6 +50,7 @@ namespace NoteAppUI
         {
             FillListbox();
             CategorysComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            //Лабораторная работа  №2
             //Project project = new Project();
             //Note[] note = new Note[2];
             //for (int i = 0; i < 2; i++)

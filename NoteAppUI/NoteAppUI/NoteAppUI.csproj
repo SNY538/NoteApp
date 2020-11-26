@@ -103,6 +103,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NoteApp.UnitTests\NoteApp.UnitTests.csproj">
+      <Project>{7cb2a858-7da4-4e9b-8aaf-e1bbb259c03c}</Project>
+      <Name>NoteApp.UnitTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NoteApp\NoteApp.csproj">
       <Project>{6c5448b9-20e3-44f5-8475-a1057f2ec6f7}</Project>
       <Name>NoteApp</Name>
@@ -119,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\folder-add-black-interface-symbol_icon-icons.com_54529.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1491254405-plusaddmoredetail_82972.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,6 +63,16 @@ namespace NoteAppUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1491254405_plusaddmoredetail_82972 {
+            get {
+                object obj = ResourceManager.GetObject("1491254405-plusaddmoredetail_82972", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_close_delete_exit_logout_remove_x_icon_123217 {
             get {
                 object obj = ResourceManager.GetObject("cancel_close_delete_exit_logout_remove_x_icon_123217", resourceCulture);
