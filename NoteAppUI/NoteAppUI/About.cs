@@ -21,5 +21,10 @@ namespace NoteAppUI
         {
             System.Diagnostics.Process.Start("https://github.com/SNY538/NoteApp/tree/main");
         }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

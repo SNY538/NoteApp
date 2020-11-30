@@ -64,5 +64,10 @@ namespace NoteAppUI
                 this.Close();
             }
     }
+
+        private void NoteTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

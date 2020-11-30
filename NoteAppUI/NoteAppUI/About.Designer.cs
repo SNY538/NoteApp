@@ -133,6 +133,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 350);
             this.Name = "About";
             this.Text = "About";
+            this.Load += new System.EventHandler(this.About_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
