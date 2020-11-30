@@ -10,9 +10,9 @@ namespace NoteApp
     /// </summary>
     public class ProjectManager
     {
-        private static string _path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\NoteApp.notes";  //Закрытая константа, содержащая путь 
+        //private static string _path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\NoteApp.notes";  //Закрытая константа, содержащая путь 
 
-        public static void WritingToFile(Project project)
+        public static void WritingToFile(Project project, string path)
         {
             JsonSerializer serializer = new JsonSerializer()
             {
@@ -20,14 +20,14 @@ namespace NoteApp
                 TypeNameHandling = TypeNameHandling.All
             };
 
-            using (StreamWriter sw = new StreamWriter(_path))
+            using (StreamWriter sw = new StreamWriter(path))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, project);
             }
         }
 
-        public static Project ReadingFromFile ()
+        public static Project ReadingFromFile (string path)
         {
             Project project = null;
             JsonSerializer serializer= new JsonSerializer()
@@ -35,7 +35,7 @@ namespace NoteApp
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.All
             };
-            using (StreamReader sr= new StreamReader(_path))
+            using (StreamReader sr= new StreamReader(path))
             using (JsonReader reader = new JsonTextReader(sr))
             {
                 project = (Project) serializer.Deserialize<Project>(reader);

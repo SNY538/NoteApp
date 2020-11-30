@@ -27,7 +27,7 @@ namespace NoteApp
                 _name = value;
                 if (_name.Length > 50)
                 {
-                    throw  new Exception("Дина названия заметки не должна превышать 50 символов");
+                    throw  new ArgumentException("Дина названия заметки не должна превышать 50 символов");
                 }
 
                 if (_name.Length == 0)

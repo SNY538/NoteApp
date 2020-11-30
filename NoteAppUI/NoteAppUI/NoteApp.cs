@@ -14,7 +14,7 @@ namespace NoteAppUI
 {
     public partial class MainForm : Form
     {
-        
+        private static string _path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\NoteApp.notes";
         public MainForm()
         {
             
@@ -27,11 +27,11 @@ namespace NoteAppUI
             }
             try
             {
-                allNotes = ProjectManager.ReadingFromFile(); //загрузка списка заметок
+                allNotes = ProjectManager.ReadingFromFile(_path); //загрузка списка заметок
             }
             catch (Exception e)
             {
-                ProjectManager.WritingToFile(allNotes);
+                ProjectManager.WritingToFile(allNotes, _path);
             }
 
             CategorysComboBox.SelectedIndex = 0; //по умолчанию 1 категория 
@@ -92,7 +92,7 @@ namespace NoteAppUI
 
             allNotes._currentNote = allNotes.RealIndexes[TitlesListBox.SelectedIndex];
 
-            ProjectManager.WritingToFile(allNotes);
+            ProjectManager.WritingToFile(allNotes, _path);
 
             CategoryTextBox.Clear();
             TitleTextBox.Clear();
@@ -108,6 +108,8 @@ namespace NoteAppUI
             CreateDateTimePicker.Value = sortNotes[TitlesListBox.SelectedIndex].TimeCreation;
             ChangeDateTimePicker.Value = sortNotes[TitlesListBox.SelectedIndex].TimeCreation;
             NoteTextBox.Text = sortNotes[TitlesListBox.SelectedIndex].Text;
+
+
         }
 
         private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,7 +188,7 @@ namespace NoteAppUI
 
                 TitlesListBox.SelectedItem = changeTitle;
 
-                ProjectManager.WritingToFile(allNotes);
+                ProjectManager.WritingToFile(allNotes, _path);
             }
         }
 
@@ -223,7 +225,7 @@ namespace NoteAppUI
 
                 TitlesListBox.SelectedItem = changeTitle;
 
-                ProjectManager.WritingToFile(allNotes);
+                ProjectManager.WritingToFile(allNotes, _path);
             }
         }
 
@@ -255,7 +257,7 @@ namespace NoteAppUI
 
 
 
-                ProjectManager.WritingToFile(allNotes);
+                ProjectManager.WritingToFile(allNotes, _path);
             }
         }
 
