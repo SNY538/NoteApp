@@ -49,7 +49,9 @@ namespace NoteAppUI
         private void Form1_Load(object sender, EventArgs e)
         {
             FillListbox();
+            
             CategorysComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+           
             //Лабораторная работа  №2
             //Project project = new Project();
             //Note[] note = new Note[2];
@@ -104,7 +106,7 @@ namespace NoteAppUI
 
             //заполняем данными правую часть окна
             TitleTextBox.Text = sortNotes[TitlesListBox.SelectedIndex].Name;
-            CategoryTextBox.Text = "Category: " + sortNotes[TitlesListBox.SelectedIndex].Category;
+            CategoryTextBox.Text = " " + sortNotes[TitlesListBox.SelectedIndex].Category;
             CreateDateTimePicker.Value = sortNotes[TitlesListBox.SelectedIndex].TimeCreation;
             ChangeDateTimePicker.Value = sortNotes[TitlesListBox.SelectedIndex].TimeCreation;
             NoteTextBox.Text = sortNotes[TitlesListBox.SelectedIndex].Text;
@@ -266,7 +268,7 @@ namespace NoteAppUI
             FillListbox();
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        private void CategoryTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

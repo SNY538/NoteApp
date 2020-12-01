@@ -71,7 +71,9 @@
             // 
             this.TitleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.TitleTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TitleTextBox.Location = new System.Drawing.Point(84, 13);
+            this.TitleTextBox.MaxLength = 50;
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(474, 20);
             this.TitleTextBox.TabIndex = 2;
@@ -217,7 +219,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TitleTextBox;
         private System.Windows.Forms.ComboBox CategorysComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker CreateDateTimePicker;
@@ -229,5 +230,6 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox TitleTextBox;
     }
 }
